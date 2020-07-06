@@ -1,19 +1,60 @@
+body {
+  height: 950px;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 .App {
+  width: 600px;
+  height: 300px;
+  background-color: #ffaa33;
+  margin: auto;
+  margin-top: 100px;
+  border: 1px solid #000;
+  border-radius: 17px 17px 17px 17px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.author, .quote {
+  text-align: center;
+  font-family: "Calibri";
+  margin: 25px;
+  height: 40px;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.author {
+  text-align: right;
+  margin-right: 50px;
 }
 
-.App-header {
+#newQuote {
+ display: inline-block;
+  color: #666;
+  background-color: #82A0B2;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-bottom-width: 3px;
+  margin-top: 12px;
+  
+}
+
+.Container{
+
+}
+
+/*.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,7 +63,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+}*/
 
 .App-link {
   color: #61dafb;
