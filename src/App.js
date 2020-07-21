@@ -26,11 +26,17 @@ const arrColors = [
 
 const docBody = document.querySelector('body');
 
-//const randomNum = Math.floor(Math.random() * arrQuotes.length);
+let randomNum;
+let lastRandomNum;
 
+//Obtengo un número aleatorio y lo vuelvo a generar si es el mismo que el último generado
 function getRandomNum () {
-    return Math.floor(Math.random() * arrQuotes.length);
-}
+    do {
+        randomNum = Math.floor(Math.random() * arrQuotes.length);
+    } while (randomNum === lastRandomNum);
+    lastRandomNum = randomNum;
+    return randomNum;
+} 
 
 
 class App extends React.Component {
@@ -41,7 +47,6 @@ class App extends React.Component {
             author: '',
             bgcolor: 'white',
             qtcolor: 'white',
-
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -52,7 +57,7 @@ class App extends React.Component {
             quote: arrQuotes[randomNum][0],
             author: arrQuotes[randomNum][1],
             bgcolor: arrColors[randomNum][0],
-            qtcolor: arrColors[randomNum][1]
+            qtcolor: arrColors[randomNum][1],
         })
     }
 
@@ -63,13 +68,11 @@ class App extends React.Component {
             height: '100%'
         }
         return (
-        <div className="Container" style={cntstyle}>
             <div className="App" style={{backgroundColor: this.state.qtcolor}}>
                 <h2 className="quote">{this.state.quote}</h2>
                 <h1 className="author">{this.state.author}</h1>
                 <button id="newQuote" onClick={this.handleClick}>NEW QUOTE!</button>
             </div>
-        </div>
         );
     }
 }
