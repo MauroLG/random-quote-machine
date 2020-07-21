@@ -52,12 +52,12 @@ class App extends React.Component {
     }
 
     handleClick(){
-        const randomNum = getRandomNum();
+        const rNum = getRandomNum();
         this.setState({
-            quote: arrQuotes[randomNum][0],
-            author: arrQuotes[randomNum][1],
-            bgcolor: arrColors[randomNum][0],
-            qtcolor: arrColors[randomNum][1],
+            quote: arrQuotes[rNum][0],
+            author: arrQuotes[rNum][1],
+            bgcolor: arrColors[rNum][0],
+            qtcolor: arrColors[rNum][1],
         })
     }
 
