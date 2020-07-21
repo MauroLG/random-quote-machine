@@ -14,14 +14,14 @@ const arrQuotes = [
 ]
 
 const arrColors = [
-    ["#A7AED1", "#6C7DD9"],
-    ["#877C9E","#8C68D9"],
-    ["#D199A6","#D95D7A"],
-    ["#9E7565","#D9724A"],
-    ["#9E8C6F","#D9A757"],
-    ["#9E9A70","#D9CE59"],
-    ["#8DA375","#9CD95B"],
-    ["#95D1AB","#59D988"],
+    ["#87CC95", "#91DBA0"],
+    ["#8ABFB7","#9DDBD2"],
+    ["#9197B8","#ACB3D9"],
+    ["#A98ABA","#C7A1DA"],
+    ["#BA7B8F","#DA90A7"],
+    ["#BA8F7D","#DAA892"],
+    ["#BFAC80","#DAC592"],
+    ["#B4C482","#C8DB91"],
 ]
 
 const docBody = document.querySelector('body');
@@ -62,16 +62,24 @@ class App extends React.Component {
     }
 
     render(){
-        const cntstyle = {
-            backgroundColor: this.state.bgcolor,
+        const qtStyleBg = {
+            backgroundColor: this.state.qtcolor,
+        }
+        const qtStyleSh = {
+            boxShadow: '7px 7px 50px 1px' + this.state.qtcolor,
+        }
+        const bgStyle = {
+            backgroundImage: 'radial-gradient(circle, '+this.state.bgcolor+','+this.state.qtcolor+')',
             width: '100%',
             height: '100%'
         }
         return (
-            <div className="App" style={{backgroundColor: this.state.qtcolor}}>
-                <h2 className="quote">{this.state.quote}</h2>
-                <h1 className="author">{this.state.author}</h1>
-                <button id="newQuote" onClick={this.handleClick}>NEW QUOTE!</button>
+            <div className="Container" style={bgStyle}>
+                <div className="App" style={{...qtStyleBg, ...qtStyleSh}}>
+                    <h2 className="quote">{this.state.quote}</h2>
+                    <h1 className="author">{this.state.author}</h1>
+                    <button id="newQuote" onClick={this.handleClick}>NEW QUOTE!</button>
+                </div>
             </div>
         );
     }
