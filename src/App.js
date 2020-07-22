@@ -3,14 +3,14 @@ import './App.css';
 import {Helmet} from "react-helmet"
 
 const arrQuotes = [
-    ['My favorite things in life don’t cost any money. It’s really clear that the most precious resource we all have is time.', 'Steve Jobs'],
-    ['The Internet is becoming the town square for the global village of tomorrow.', 'Bill Gates'],
-    ['Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.', 'Linus Torvalds'],
-    ['The biggest risk is not taking any risk... In a world that changing really quickly, the only strategy that is guaranteed to fail is not taking risks.', 'Mark Zuckerberg'],
-    ['The most technologically efficient machine that man has ever invented is the book.', 'Northrop Frye'],
-    ['Just because something doesn’t do what you planned it to do doesn’t mean it’s useless.', 'Thomas Edison'],
-    ['The human spirit must prevail over technology.', 'Albert Einstein'],
-    ['It’s supposed to be automatic, but actually you have to push this button.', 'John Brunner']
+    ['My favorite things in life don’t cost any money. It’s really clear that the most precious resource we all have is time.\"', 'Steve Jobs'],
+    ['The Internet is becoming the town square for the global village of tomorrow.\"', 'Bill Gates'],
+    ['Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.\"', 'Linus Torvalds'],
+    ['The biggest risk is not taking any risk... In a world that changing really quickly, the only strategy that is guaranteed to fail is not taking risks.\"', 'Mark Zuckerberg'],
+    ['The most technologically efficient machine that man has ever invented is the book.\"', 'Northrop Frye'],
+    ['Just because something doesn’t do what you planned it to do doesn’t mean it’s useless.\"', 'Thomas Edison'],
+    ['The human spirit must prevail over technology.\"', 'Albert Einstein'],
+    ['It’s supposed to be automatic, but actually you have to push this button.\"', 'John Brunner']
 ]
 
 const arrColors = [
@@ -45,8 +45,10 @@ class App extends React.Component {
         this.state = {
             quote: '',
             author: '',
-            bgcolor: 'white',
-            qtcolor: 'white',
+            bgColor: 'white',
+            qtColor: 'white',
+            fntColor:'white',
+            firstQuote: true,
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -56,32 +58,47 @@ class App extends React.Component {
         this.setState({
             quote: arrQuotes[rNum][0],
             author: arrQuotes[rNum][1],
-            bgcolor: arrColors[rNum][0],
-            qtcolor: arrColors[rNum][1],
+            bgColor: arrColors[rNum][0],
+            qtColor: arrColors[rNum][1],
+            firstQuote: false,
         })
     }
 
     render(){
-        const qtStyleBg = {
-            backgroundColor: this.state.qtcolor,
+        const qtStyle = {
+            color: this.state.qtColor,
+            boxShadow: '4px 4px 15px 4px #000',
+            backgroundColor: '#000' 
         }
-        const qtStyleSh = {
-            boxShadow: '7px 7px 50px 1px' + this.state.qtcolor,
-        }
-        const bgStyle = {
-            backgroundImage: 'radial-gradient(circle, '+this.state.bgcolor+','+this.state.qtcolor+')',
+
+        const cStyleBg = {
+            backgroundImage: 'radial-gradient(circle, '+this.state.bgColor+','+this.state.qtColor+', black)',
             width: '100%',
             height: '100%'
         }
-        return (
-            <div className="Container" style={bgStyle}>
-                <div className="App" style={{...qtStyleBg, ...qtStyleSh}}>
-                    <h2 className="quote">{this.state.quote}</h2>
-                    <h1 className="author">{this.state.author}</h1>
-                    <button id="newQuote" onClick={this.handleClick}>NEW QUOTE!</button>
+
+        const firstQuote = this.state.firstQuote;
+
+        if (firstQuote) {
+            return (
+                <div className="Container" style={cStyleBg}>
+                    <div className="App">
+                        <button id="newQuote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor,}}>TAKE YOUR FIRST QUOTE!</button>
+                    </div>
                 </div>
-            </div>
-        );
+            );            
+        } 
+        else {
+            return (
+                <div className="Container" style={cStyleBg}>
+                    <div className="App" style={qtStyle}>
+                        <h2 className="quote">{this.state.quote}</h2>
+                        <h1 className="author">~ {this.state.author}</h1>
+                        <button id="newQuote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor}}>NEW QUOTE!</button>
+                    </div>
+                </div>
+             );
+        }
     }
 }
 
