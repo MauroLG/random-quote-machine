@@ -1,16 +1,18 @@
 import React from 'react';
 import './App.css';
-import {Helmet} from "react-helmet"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 const arrQuotes = [
-    ['My favorite things in life don’t cost any money. It’s really clear that the most precious resource we all have is time.\"', 'Steve Jobs'],
-    ['The Internet is becoming the town square for the global village of tomorrow.\"', 'Bill Gates'],
-    ['Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.\"', 'Linus Torvalds'],
-    ['The biggest risk is not taking any risk... In a world that changing really quickly, the only strategy that is guaranteed to fail is not taking risks.\"', 'Mark Zuckerberg'],
-    ['The most technologically efficient machine that man has ever invented is the book.\"', 'Northrop Frye'],
-    ['Just because something doesn’t do what you planned it to do doesn’t mean it’s useless.\"', 'Thomas Edison'],
-    ['The human spirit must prevail over technology.\"', 'Albert Einstein'],
-    ['It’s supposed to be automatic, but actually you have to push this button.\"', 'John Brunner']
+    ['\"My favorite things in life don’t cost any money. It’s really clear that the most precious resource we all have is time.\"', 'Steve Jobs'],
+    ['\"The Internet is becoming the town square for the global village of tomorrow.\"', 'Bill Gates'],
+    ['\"Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.\"', 'Linus Torvalds'],
+    ['\"The biggest risk is not taking any risk... In a world that changing really quickly, the only strategy that is guaranteed to fail is not taking risks.\"', 'Mark Zuckerberg'],
+    ['\"The most technologically efficient machine that man has ever invented is the book.\"', 'Northrop Frye'],
+    ['\"Just because something doesn’t do what you planned it to do doesn’t mean it’s useless.\"', 'Thomas Edison'],
+    ['\"The human spirit must prevail over technology.\"', 'Albert Einstein'],
+    ['\"It’s supposed to be automatic, but actually you have to push this button.\"', 'John Brunner']
 ]
 
 const arrColors = [
@@ -83,7 +85,7 @@ class App extends React.Component {
             return (
                 <div className="Container" style={cStyleBg}>
                     <div className="App">
-                        <button id="newQuote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor,}}>TAKE YOUR FIRST QUOTE!</button>
+                        <button id="newQuote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor, height: "4em", fontSize: "20px"}}>TAKE YOUR FIRST QUOTE!</button>
                     </div>
                 </div>
             );            
@@ -92,8 +94,9 @@ class App extends React.Component {
             return (
                 <div className="Container" style={cStyleBg}>
                     <div className="App" style={qtStyle}>
-                        <h2 className="quote">{this.state.quote}</h2>
+                        <h2 className="quote"><FontAwesomeIcon icon={faQuoteLeft} />  {this.state.quote}</h2>
                         <h1 className="author">~ {this.state.author}</h1>
+                        <a id="tweetQuote" style={{color: this.state.qtColor}} href={'https://twitter.com/intent/tweet?hashtags=quotes,freecodecamp&text='+this.state.quote+' ~' + this.state.author}><FontAwesomeIcon icon={faTwitter} /></a>
                         <button id="newQuote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor}}>NEW QUOTE!</button>
                     </div>
                 </div>
