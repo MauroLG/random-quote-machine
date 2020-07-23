@@ -61,7 +61,7 @@ class App extends React.Component {
             bgColor: arrColors[rNum][0],
             qtColor: arrColors[rNum][1],
             firstQuote: false,
-        })
+        });
     }
 
     render(){
@@ -82,8 +82,8 @@ class App extends React.Component {
         if (firstQuote) {
             return (
                 <div className="Container" style={cStyleBg}>
-                    <div className="App">
-                        <button id="newQuote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor, height: "4em", fontSize: "20px"}}>TAKE YOUR FIRST QUOTE!</button>
+                    <div id="quote-box" className="App">
+                        <button id="new-quote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor, height: "4em", fontSize: "20px"}}>TAKE YOUR FIRST QUOTE!</button>
                     </div>
                 </div>
             );            
@@ -91,11 +91,11 @@ class App extends React.Component {
         else {
             return (
                 <div className="Container" style={cStyleBg}>
-                    <div className="App" style={qtStyle}>
-                        <h2 className="quote"><FontAwesomeIcon icon={faQuoteLeft} />  {this.state.quote}</h2>
-                        <h1 className="author">~ {this.state.author}</h1>
-                        <a id="tweetQuote" style={{color: this.state.qtColor}} href={'https://twitter.com/intent/tweet?hashtags=quotes,freecodecamp&text='+this.state.quote+' ~' + this.state.author}><FontAwesomeIcon icon={faTwitter} /></a>
-                        <button id="newQuote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor}}>NEW QUOTE!</button>
+                    <div id="quote-box" className="App" style={qtStyle}>
+                        <h2 id="text" className="quote"><FontAwesomeIcon icon={faQuoteLeft} />  {this.state.quote}</h2>
+                        <h1 id="author" className="author">~ {this.state.author}</h1>
+                        <a id="tweet-quote" style={{color: this.state.qtColor}} href={'https://twitter.com/intent/tweet?hashtags=quotes,freecodecamp&text='+this.state.quote+' ~' + this.state.author}><FontAwesomeIcon icon={faTwitter} /></a>
+                        <button id="new-quote" onClick={this.handleClick} style={{backgroundColor: this.state.qtColor}}>NEW QUOTE!</button>
                     </div>
                 </div>
              );
