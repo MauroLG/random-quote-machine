@@ -1,6 +1,6 @@
 # FreeCodeCamp Random Quote Machine Project
 
-## This project is part of the FreeCodeCamp Front-End certification curriculum.
+This project is part of the FreeCodeCamp Front-End certification curriculum.
 
 I have chosen **React** to carry out this project and to be able to practice the basic knowledge I have about this library.
 
