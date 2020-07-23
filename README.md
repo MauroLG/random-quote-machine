@@ -1,3 +1,13 @@
+# FreeCodeCamp Random Quote Machine Project
+
+## This project is part of the FreeCodeCamp Front-End certification curriculum.
+
+I have chosen **React** to carry out this project and to be able to practice the basic knowledge I have about this library.
+
+I have completed the first stage of the project by passing all the tests requested by FCC. *Some adjustments to the responsive design are missing.*
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
